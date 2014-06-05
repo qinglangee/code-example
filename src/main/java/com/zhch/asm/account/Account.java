@@ -7,7 +7,7 @@ package com.zhch.asm.account;
  */
 public class Account {
 	
-	double money = 33;
+	double money = 332;
 	
 	public void showMoney(){
 		System.out.println("my money is :" + money);
