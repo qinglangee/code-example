@@ -1,2 +1,12 @@
+.project
+.classpath
+.settings/
+.myeclipse/
+.mymetadata
+.externalToolBuilders
+WebRoot/WEB-INF/classes
+WebRoot/WEB-INF/lib
+src/main/web/WEB-INF/classes
+src/main/web/WEB-INF/lib
 target
 
