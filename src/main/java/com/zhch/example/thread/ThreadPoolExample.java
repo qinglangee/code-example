@@ -11,13 +11,14 @@ public class ThreadPoolExample {
 
 	public void test() {
 		ExecutorService pool = Executors.newCachedThreadPool();
-		// 相当于 pool = ..   各个参数可以自己设置
-		new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
 		
+		// Executors.newCachedThreadPool() 的实现如下
+		new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS,
+			new SynchronousQueue<Runnable>());
+
 		// 这个是单线程的线程池, 任务一个一个来
-//		ExecutorService pool = Executors.newSingleThreadExecutor();
-		
-		
+		// ExecutorService pool = Executors.newSingleThreadExecutor();
+
 		MyThread t1 = new MyThread();
 		MyThread t2 = new MyThread();
 		MyThread t3 = new MyThread();
@@ -35,12 +36,14 @@ public class ThreadPoolExample {
 	class MyThread implements Runnable {
 
 		public void run() {
-			try {
-				Thread.sleep(50);
-			} catch (Exception e) {
+			for (int i = 0; i < 3; i++) {
+				try {
+					Thread.sleep(500);
+				} catch (Exception e) {
 
+				}
+				System.out.println(System.currentTimeMillis() - start);
 			}
-			System.out.println(System.currentTimeMillis() - start);
 		}
 
 	}
