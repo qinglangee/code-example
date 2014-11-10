@@ -13,6 +13,7 @@ public class ThreadPoolExample {
 		ExecutorService pool = Executors.newCachedThreadPool();
 		
 		// Executors.newCachedThreadPool() 的实现如下
+		// 第一个参数 coolPoolSize 是一直放在池中的线程数量, 设为0 会一直只有一个线程在工作, why?
 		new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS,
 			new SynchronousQueue<Runnable>());
 
