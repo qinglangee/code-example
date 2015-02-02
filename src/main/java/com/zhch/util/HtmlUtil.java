@@ -1,4 +1,4 @@
-package com.zhch.example.util;
+package com.zhch.util;
 
 
 import java.io.BufferedReader;
