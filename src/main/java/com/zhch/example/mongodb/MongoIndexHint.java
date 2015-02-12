@@ -61,7 +61,7 @@ public class MongoIndexHint {
 		returnFields.append("currBoardId",1);
 		try {
 //			cur = coll.find(obj,returnFields).sort(new BasicDBObject("commentId",-1)).limit(limit);
-			cur = coll.find(obj,returnFields).sort(new BasicDBObject("commentId",-1)).limit(limit).hint("index_name");
+			cur = coll.find(obj,returnFields).sort(new BasicDBObject("commentId",-1)).limit(limit).hint("idx_acc");
 			t3 = System.currentTimeMillis();
 			Iterator<DBObject> its = cur.iterator();
 			System.out.println(obj);
