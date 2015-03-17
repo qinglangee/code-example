@@ -32,14 +32,14 @@ public class WordTime {
 		
 		Map<String, List<Record>> map = new HashMap<String, List<Record>>();
 		
-		int[] reviewTime = new int[]{1,2,4,7,15,20}; // 复习的间隔时间
+		int[] reviewTime = new int[]{1,2,4,7,15,25}; // 复习的间隔时间
 		
 		for(Record r : records){
 			Date date = TimeTool.parseDate(r.time, "yyyy-MM-dd");
 			Calendar c = Calendar.getInstance();
-			c.setTime(date);
 			
 			for(int day : reviewTime){
+				c.setTime(date);
 				c.add(Calendar.DAY_OF_YEAR, day);
 				String reviewDay = TimeTool.formatDate(c.getTime(), "yyyy-MM-dd");
 				
@@ -77,20 +77,20 @@ public class WordTime {
 		for(int i=0;i<=days;i++){
 			c.add(Calendar.DAY_OF_YEAR, 1);
 			
-			// 周一就打印个窄
+			// 周一就打印个空行
 			if(c.get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY){
 				System.out.println();
 			}
 			
 			String key = TimeTool.formatDate(c.getTime(), "yyyy-MM-dd");
 			StringBuilder sb = new StringBuilder();
-			sb.append(key).append("  ");
+			sb.append(key);
 			
 			List<Record> records = map.get(key);
 			if(records != null){
 				Collections.sort(records);
 				for(Record r : records){
-					sb.append(r.name).append("(").append(r.comment).append(")   ");
+					sb.append("  ").append(r.name); //.append("(").append(r.comment).append(")");
 				}
 			}
 			System.out.println(sb);
