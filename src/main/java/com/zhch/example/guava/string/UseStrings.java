@@ -15,6 +15,9 @@ public class UseStrings {
 		String foopadstr = Strings.padStart("foo",6,'x');
 		Assert.assertEquals(foopadstr, "xxxfoo");
 		
+		// isNull 判断 
+		Strings.isNullOrEmpty("");
+		
 	}
 
 	public static void main(String[] args) {

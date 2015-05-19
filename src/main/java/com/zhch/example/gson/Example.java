@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
@@ -32,6 +34,15 @@ public class Example {
 		Type type = new TypeToken<List<People>>(){}.getType();
 		List<People> list = gson.fromJson(json, type);
 		System.out.println(list);  // name:zhangsan, age:12
+	}
+	
+	public void parseJson(){
+		String json = "[{\"name\":\"zhangsan\",\"age\":12},{\"name\":\"lisi\",\"age\":13}]";
+		JsonElement ele = parser.parse(json);
+		JsonArray obj = ele.getAsJsonArray();
+
+		String json2 = "{\"name\":\"zhangsan\",\"age\":12}";
+		String name = parser.parse(json).getAsJsonObject().get("name").getAsString();
 	}
 	
 	public static void main(String[] args) {
