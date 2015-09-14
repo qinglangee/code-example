@@ -2,17 +2,12 @@ package com.zhch.example.jmagick;
 
 import java.io.File;
 
-import magick.ImageInfo;
-import magick.MagickException;
-import magick.MagickImage;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 
-import com.gif4j.GifDecoder;
-import com.gif4j.GifEncoder;
-import com.gif4j.GifImage;
-import com.gif4j.GifTransformer;
+import magick.ImageInfo;
+import magick.MagickException;
+import magick.MagickImage;
 
 /**
  * 使用JMagick进行图像处理
@@ -71,9 +66,12 @@ class JMagickHandler {
 
 		try {
 			if (image.isAnimatedImage()) {
-				GifImage gifImage = GifDecoder.decode(new File(src));
-				GifImage newGif = GifTransformer.resize(gifImage, width, height, false);
-				GifEncoder.encode(newGif, new File(dest));
+
+				// TODO ZHCH 没有 gif4j 的 pom
+				// GifImage gifImage = GifDecoder.decode(new File(src));
+				// GifImage newGif = GifTransformer.resize(gifImage, width,
+				// height, false);
+				// GifEncoder.encode(newGif, new File(dest));
 			} else {// others
 				scaledimage = image.scaleImage(width, height);
 				scaledimage.setImageFormat("JPEG");
@@ -150,7 +148,7 @@ class JMagickHandler {
 
 	}
 
-	public static void main(String[] args) throws Exception  {
+	public static void main(String[] args) throws Exception {
 		JMagickHandler handler = new JMagickHandler();
 		String dir = "/home/lifeix/temp/d3/";
 		String file = "heng9.png";

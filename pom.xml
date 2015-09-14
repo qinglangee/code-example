@@ -91,11 +91,11 @@
 			<artifactId>jmagick</artifactId>
 			<version>6.6.9</version>
 		</dependency>
-		<dependency>
-			<groupId>com.lifeix.l06</groupId>
+		<!-- <dependency>
+			<groupId>com.gif4j</groupId>
 			<artifactId>gif4j</artifactId>
 			<version>1.0.0</version>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>org.im4java</groupId>
 			<artifactId>im4java</artifactId>
