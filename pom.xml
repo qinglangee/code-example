@@ -23,7 +23,7 @@
 			<artifactId>testng</artifactId>
 			<version>6.8.8</version>
 		</dependency>
-		<!-- time  string 工具类 -->
+		<!-- time string 工具类 -->
 		<dependency>
 			<groupId>com.zhch</groupId>
 			<artifactId>javatool</artifactId>
@@ -91,11 +91,8 @@
 			<artifactId>jmagick</artifactId>
 			<version>6.6.9</version>
 		</dependency>
-		<!-- <dependency>
-			<groupId>com.gif4j</groupId>
-			<artifactId>gif4j</artifactId>
-			<version>1.0.0</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>com.gif4j</groupId> <artifactId>gif4j</artifactId> 
+			<version>1.0.0</version> </dependency> -->
 		<dependency>
 			<groupId>org.im4java</groupId>
 			<artifactId>im4java</artifactId>
@@ -142,6 +139,12 @@
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>18.0</version>
+		</dependency>
+		<!-- word excel pdf 格式转换 -->
+		<dependency>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>jodconverter-core</artifactId>
+			<version>1.0.5</version>
 		</dependency>
 	</dependencies>
 
