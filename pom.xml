@@ -37,7 +37,7 @@
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
-			<version>4.2.4</version>
+			<version>4.5.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.quartz-scheduler</groupId>
@@ -55,7 +55,7 @@
 			<version>1.7.3</version>
 		</dependency>
 
-		<dependency>
+		<dependency><!-- 这个包已经被 httpcomponents 中的 httpclient 代替了 -->
 			<groupId>commons-httpclient</groupId>
 			<artifactId>commons-httpclient</artifactId>
 			<version>3.1</version>

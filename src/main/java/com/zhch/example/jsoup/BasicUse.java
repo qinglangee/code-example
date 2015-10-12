@@ -13,13 +13,14 @@ import org.jsoup.select.Elements;
 public class BasicUse {
 	/**
 	 * 简单示例
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
 	public void findElement() throws IOException {
 		Document doc = Jsoup.connect("http://www.baidu.com/").get();
 		System.out.println(doc.title());
 		Elements links = doc.select("#u1 a");
-		for(Element e : links){
+		for (Element e : links) {
 			System.out.println(e.text());
 		}
 		// 取第一个
@@ -27,7 +28,7 @@ public class BasicUse {
 		// 取属性的值
 		System.out.println("first href: " + first.attr("href"));
 	}
-	
+
 	/**
 	 * 设置 cookie 值
 	 */
@@ -41,33 +42,44 @@ public class BasicUse {
 		conn.cookies(cookies);
 		Document doc = conn.get();
 		System.out.println(doc.title());
-		
+
 		// 设置忽略 ContentType  org.jsoup.UnsupportedMimeTypeException
 		conn = Jsoup.connect("http://www.l99.com/dashboardPage.action?dt=5").ignoreContentType(true);
 		doc = conn.get();
 		System.out.println(doc.title());
 	}
-	
+
+	/**
+	 * post 添加数据
+	 * 
+	 * @throws IOException
+	 */
+	public void postData() throws IOException {
+		Document doc = Jsoup.connect("http://example.com").data("query", "Java").userAgent("Mozilla")
+				.cookie("auth", "token").timeout(3000).post();
+	}
+
 	/**
 	 * 从字符串获取内容
 	 */
 	public void parseString() {
 		String html = "<html><head><title>First parse</title></head>"
-			+ "<body><p>Parsed HTML into a doc.</p></body></html>";
+				+ "<body><p>Parsed HTML into a doc.</p></body></html>";
 		Document doc = Jsoup.parse(html);
 		// 打印 title
 		System.out.println(doc.title());
 	}
-	
+
 	/**
 	 * 从文件获取内容
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
 	public void parseFile() throws IOException {
 		// TODO ZHCH  用 classpath:com/zhch/example/jsoup/example.html 方式取
 		String classpath = this.getClass().getResource("/").getPath();
-		
-		File file = new File(classpath + "com/zhch/example/jsoup/example.html"); 
+
+		File file = new File(classpath + "com/zhch/example/jsoup/example.html");
 		Document doc = Jsoup.parse(file, "utf-8");
 		// 打印 title
 		System.out.println(doc.title());
@@ -76,6 +88,6 @@ public class BasicUse {
 	public static void main(String[] args) throws Exception {
 		BasicUse t = new BasicUse();
 		t.findElement();
-//		t.parseFile();
+		//		t.parseFile();
 	}
 }
