@@ -146,6 +146,18 @@
 			<artifactId>jodconverter-core</artifactId>
 			<version>1.0.5</version>
 		</dependency>
+		<!-- 解压 tar gzip bz 等各种压缩包 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-compress</artifactId>
+			<version>1.10</version>
+		</dependency>
+		<!-- 解压 rar -->
+		<dependency>
+			<groupId>com.github.junrar</groupId>
+			<artifactId>junrar</artifactId>
+			<version>0.7</version>
+		</dependency>
 	</dependencies>
 
 	<build>
