@@ -18,6 +18,12 @@ import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.io.IOUtils;
 
+/**
+ * copy from http://blog.csdn.net/problc/article/details/5794460
+ * 
+ * @author zhch
+ *
+ */
 public class ImagePreProcess {
 
 	public static int isWhite(int colorInt) {
