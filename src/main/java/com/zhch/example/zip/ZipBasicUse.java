@@ -95,6 +95,10 @@ public class ZipBasicUse {
 		while ((zipEntry = zipInputStream.getNextEntry()) != null) {
 			String fileName = zipEntry.getName();
 			File temp = new File("D:\\temp\\d3\\unzip\\" + fileName);
+			if (zipEntry.isDirectory()) {
+				temp.mkdirs();
+				continue;
+			}
 			if (!temp.getParentFile().exists())
 				temp.getParentFile().mkdirs();
 			OutputStream os = new FileOutputStream(temp);
