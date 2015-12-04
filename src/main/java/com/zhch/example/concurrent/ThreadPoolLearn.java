@@ -1,4 +1,4 @@
-package com.zhch.example.thread;
+package com.zhch.example.concurrent;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.ehcache.org/v3">
+
+	<cache alias="foo" >
+		<key-type>java.lang.Long</key-type>
+		<value-type>java.lang.String</value-type>
+		<resources>
+			<heap size="2000" unit="entries" />
+			<offheap size="500" unit="mb" />
+		</resources>
+	</cache>
+	
+	<cache alias="foo2" >
+		<key-type>java.lang.Long</key-type>
+		<value-type>java.lang.String</value-type>
+		<resources>
+			<heap size="2000" unit="entries" />
+			<offheap size="500" unit="mb" />
+		</resources>
+	</cache>
+
+	<!-- <cache-template name="myDefaults">
+		<key-type>java.lang.Long</key-type>
+		<value-type>java.lang.String</value-type>
+		<heap size="200" unit="entries" />
+	</cache-template>
+
+	<cache alias="bar" uses-template="myDefaults">
+		<key-type>java.lang.Number</key-type>
+	</cache>
+
+	<cache alias="simpleCache" uses-template="myDefaults" /> -->
+
+</config>
