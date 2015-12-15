@@ -19,6 +19,7 @@ import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.io.IOUtils;
 
 /**
+ * 简单的解析验证码代码示例<br>
  * copy from http://blog.csdn.net/problc/article/details/5794460
  * 
  * @author zhch

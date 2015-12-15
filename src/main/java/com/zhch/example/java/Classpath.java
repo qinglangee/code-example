@@ -15,7 +15,7 @@ public class Classpath {
 		// 路径以 / 开头
 		URL url = Classpath.class.getResource("/com/zhch");
 		// 打印 classes 目录  : /home/lifeix/workspace_kepler/code-example/target/classes/
-		System.out.println("Xxx.class.getResource(\"/\") : " + url.getPath());
+		System.out.println("Xxx.class.getResource() : " + url.getPath());
 	}
 
 	public void loaderClassPath() {
