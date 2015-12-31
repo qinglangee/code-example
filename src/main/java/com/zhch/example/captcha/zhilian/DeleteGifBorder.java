@@ -13,8 +13,8 @@ public class DeleteGifBorder {
 
 	public void test() {
 
-		File srcPath = new File("d:\\temp\\d3\\tesseract\\data\\");
-		File savePath = new File("d:\\temp\\d3\\tesseract\\data_out\\");
+		File srcPath = new File("d:\\temp\\d3\\tesseract\\data_902\\");
+		File savePath = new File("d:\\temp\\d3\\tesseract\\data_out_902\\");
 		File[] files = srcPath.listFiles();
 		for (File file : files) {
 			if (!file.getName().endsWith("gif")) {
