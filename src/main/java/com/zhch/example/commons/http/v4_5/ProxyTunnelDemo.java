@@ -44,8 +44,12 @@ import org.apache.http.protocol.HTTP;
  */
 public class ProxyTunnelDemo {
 
-	public final static void main(String[] args) throws Exception {
-
+	/**
+	 * 官方提供的 demo
+	 * 
+	 * @throws Exception
+	 */
+	public final static void officalDemo() throws Exception {
 		ProxyClient proxyClient = new ProxyClient();
 		HttpHost target = new HttpHost("www.yahoo.com", 80);
 		HttpHost proxy = new HttpHost("localhost", 8888);
@@ -68,6 +72,45 @@ public class ProxyTunnelDemo {
 		} finally {
 			socket.close();
 		}
+	}
+
+	/**
+	 * 官方 demo 的修改版， 改了一点点
+	 * 
+	 * @throws Exception
+	 */
+	public final static void zhchModifyDemo() throws Exception {
+
+		ProxyClient proxyClient = new ProxyClient();
+		HttpHost target = new HttpHost("pan.baidu.com", 80);
+		//		HttpHost proxy = new HttpHost("120.24.0.162", 80);
+		HttpHost proxy = new HttpHost("127.0.0.1", 80);
+		UsernamePasswordCredentials credentials = new UsernamePasswordCredentials("abc", "def");
+		System.out.println("before tunnel.");
+		Socket socket = proxyClient.tunnel(proxy, target, credentials);
+		System.out.println("after tunnel.");
+
+		try {
+			Writer out = new OutputStreamWriter(socket.getOutputStream(), HTTP.DEF_CONTENT_CHARSET);
+			out.write("GET / HTTP/1.1\r\n");
+			out.write("Host: " + target.toHostString() + "\r\n");
+			out.write("Agent: whatever\r\n");
+			out.write("Connection: close\r\n");
+			out.write("\r\n");
+			out.flush();
+			BufferedReader in = new BufferedReader(
+					new InputStreamReader(socket.getInputStream(), HTTP.DEF_CONTENT_CHARSET));
+			String line = null;
+			while ((line = in.readLine()) != null) {
+				System.out.println(line);
+			}
+		} finally {
+			socket.close();
+		}
+	}
+
+	public static void main(String[] args) throws Exception {
+		zhchModifyDemo();
 	}
 
 }

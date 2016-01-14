@@ -3,6 +3,7 @@ package com.zhch.util;
 import java.lang.reflect.Type;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -10,11 +11,13 @@ import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
 
 public class GsonUtils {
-	public static Gson gson = new Gson();
-	public static JsonParser parser = new JsonParser();
+	private static Gson gson = new Gson();
+	private static Gson prettyGson = new GsonBuilder().setPrettyPrinting().create();
+	private static JsonParser parser = new JsonParser();
 	
 	/**
 	 * 对象转换为字符串
+	 * 
 	 * @param src
 	 * @return
 	 */
@@ -23,7 +26,18 @@ public class GsonUtils {
 	}
 	
 	/**
+	 * 打印可读格式的json
+	 * 
+	 * @param src
+	 * @return
+	 */
+	public static String toPretty(Object src) {
+		return prettyGson.toJson(src);
+	}
+
+	/**
 	 * 字符串转换为对象
+	 * 
 	 * @param json
 	 * @param typeOfT
 	 * @return
@@ -34,6 +48,7 @@ public class GsonUtils {
 	
 	/**
 	 * json element 转换为对象
+	 * 
 	 * @param json
 	 * @param typeOfT
 	 * @return
@@ -44,6 +59,7 @@ public class GsonUtils {
 	
 	/**
 	 * 字符串转换为对象
+	 * 
 	 * @param json
 	 * @param typeOfT
 	 * @return
@@ -54,6 +70,7 @@ public class GsonUtils {
 	
 	/**
 	 * json element 转换为对象
+	 * 
 	 * @param json
 	 * @param typeOfT
 	 * @return
@@ -64,6 +81,7 @@ public class GsonUtils {
 	
 	/**
 	 * 解析字符串为json对象
+	 * 
 	 * @param json
 	 * @return
 	 */
@@ -73,6 +91,7 @@ public class GsonUtils {
 	
 	/**
 	 * 解析字符串为jsonArray对象
+	 * 
 	 * @param json
 	 * @return
 	 */
