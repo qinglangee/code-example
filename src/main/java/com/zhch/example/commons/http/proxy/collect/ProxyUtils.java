@@ -99,4 +99,14 @@ public class ProxyUtils {
 
 		/* tunneling Handshake was successful! */
 	}
+
+
+	public static void main(String[] args) {
+		String host = "114.215.104.175";
+		int port = 8080;
+
+		ProxyUtils t = new ProxyUtils();
+		boolean can = t.canTunnel(host, port);
+		System.out.println(host + ":" + port + " can tunnel is :" + can);
+	}
 }

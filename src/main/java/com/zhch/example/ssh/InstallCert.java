@@ -54,9 +54,24 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 
+/**
+ * 编译InstallCert.java，然后执行：java InstallCert hostname，比如： java InstallCert
+ * www.twitter.com 会看到如下信息： ...(就是一堆错误信息)
+ * 
+ * 输入1，回车，然后会在当前的目录下产生一个名为“ssecacerts”的证书。
+ * 
+ * 将证书拷贝到$JAVA_HOME/jre/lib/security目录下，或者通过以下方式：
+ * System.setProperty("javax.net.ssl.trustStore", "你的jssecacerts证书路径");
+ * 
+ * 注意：因为是静态加载，所以要重新启动你的Web Server，证书才能生效。
+ * 
+ * @author zhch
+ *
+ */
 public class InstallCert {
 
 	public static void main(String[] args) throws Exception {
+		args = new String[] { "passport.zhaopin.com" };
 		String host;
 		int port;
 		char[] passphrase;
