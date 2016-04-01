@@ -9,6 +9,9 @@ public class SystemProperty {
 		// 路径分隔
 		String fileSep = System.getProperty("file.separator");
 		System.out.println("file.separator a" + fileSep + "b" + fileSep + "c");
+
+		// 文件编码
+		System.out.println("file.encoding:" + System.getProperty("file.encoding"));
 	}
 
 	public static void main(String[] args) {
