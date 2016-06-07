@@ -71,7 +71,8 @@ import javax.net.ssl.X509TrustManager;
 public class InstallCert {
 
 	public static void main(String[] args) throws Exception {
-		args = new String[] { "passport.zhaopin.com" };
+		//		args = new String[] { "passport.zhaopin.com" };
+		args = new String[] { "passport.lagou.com" };
 		String host;
 		int port;
 		char[] passphrase;
@@ -161,7 +162,8 @@ public class InstallCert {
 		String alias = host + "-" + (k + 1);
 		ks.setCertificateEntry(alias, cert);
 
-		OutputStream out = new FileOutputStream("jssecacerts");
+		//		OutputStream out = new FileOutputStream("jssecacerts");
+		OutputStream out = new FileOutputStream("d:\\temp\\d3\\abcd\\jssecacerts"); // 指定路径
 		ks.store(out, passphrase);
 		out.close();
 

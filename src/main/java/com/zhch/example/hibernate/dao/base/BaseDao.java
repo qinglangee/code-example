@@ -12,7 +12,6 @@ import java.util.List;
  *
  * Description：
  * 
- * @Author 项国轩
  * @Date 2012-3-8
  * @param <T>
  */

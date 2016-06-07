@@ -19,7 +19,6 @@ import org.springframework.orm.hibernate4.HibernateCallback;
  * Description：该类是个抽象类，并继承了HibernateTemplateSupport获得hibernateTemplate
  * 使用hibernateTemplate来操作数据库
  * 
- * @Author 项国轩
  * @Date 2012-3-8
  * @param <T>
  */
