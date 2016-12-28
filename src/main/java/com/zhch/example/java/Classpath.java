@@ -25,6 +25,12 @@ public class Classpath {
 		System.out.println("Xxx.class.getClassLoader().getResource(\"\") : " + url.getPath());
 	}
 
+	// 类加载的源文件
+	public void getClassSource() {
+		// xxx.class.getProtectionDomain().getCodeSource();  // xxx 是类的全名
+		System.out.println(Classpath.class.getProtectionDomain().getCodeSource());
+	}
+
 	public static void main(String[] args) {
 		Classpath t = new Classpath();
 		t.printClasspath();
