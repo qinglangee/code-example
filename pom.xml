@@ -32,9 +32,9 @@
 		</dependency>
 		<!-- time string 工具类 -->
 		<dependency>
-			<groupId>com.zhch</groupId>
+			<groupId>com.xmalloc</groupId>
 			<artifactId>javatool</artifactId>
-			<version>0.0.1</version>
+			<version>0.0.3</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-cli</groupId>

@@ -13,6 +13,7 @@ public class Base64Test {
 		System.out.println(decode + ":" + code);
 
 	}
+	
 
 	public static void main(String[] args) {
 		Base64Test t = new Base64Test();

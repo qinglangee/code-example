@@ -13,7 +13,7 @@ import java.util.Map;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 
-import com.zhch.javatool.time.TimeTool;
+import com.xmalloc.javatool.time.TimeTool;
 
 public class WordTime {
 	public void calculateTime() throws IOException {
