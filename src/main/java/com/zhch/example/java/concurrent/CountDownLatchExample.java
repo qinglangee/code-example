@@ -16,8 +16,9 @@ public class CountDownLatchExample {
 			new Thread(new Runnable() {
 				@Override
 				public void run() {
-					for (int j = 0; j < 10000; j++) {
+					for (int j = 0; j < 10; j++) {
 						total.incrementAndGet();
+						sleep(500);
 					}
 					latch.countDown();
 				}
@@ -31,6 +32,14 @@ public class CountDownLatchExample {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void sleep(long time){
+	    try {
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 	}
 
 	public static void main(String[] args) {
