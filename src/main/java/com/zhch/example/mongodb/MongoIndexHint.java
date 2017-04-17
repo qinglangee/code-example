@@ -14,7 +14,7 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
-import com.mongodb.MongoException;
+//import com.mongodb.MongoException;  // 在mongodb-driver 3.x 中已经没有　MongoException 了
 
 /**
  * 这个类就用一下, 以后就不用了
@@ -72,7 +72,8 @@ public class MongoIndexHint {
 				comments.add(Long.parseLong(dbObj.get("currBoardId").toString()));
 			}
 			 t6 = System.currentTimeMillis();
-		} catch(MongoException e) {
+//		} catch(MongoException e) {　 // 在mongodb-driver 3.x 中已经没有　MongoException 了
+		} catch(Exception e) {
 			logger.error(e.getMessage(), e);
 		} finally {
 			if(cur != null) {
