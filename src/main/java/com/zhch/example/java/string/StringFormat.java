@@ -1,6 +1,6 @@
-package com.zhch.example.java;
+package com.zhch.example.java.string;
 
-public class StringUse {
+public class StringFormat {
 	public void test() {
 		// String format
 		// %s 字符串类型 "mingrisoft"
@@ -12,7 +12,7 @@ public class StringUse {
 	}
 
 	public static void main(String[] args) {
-		StringUse t = new StringUse();
+	    StringFormat t = new StringFormat();
 		t.test();
 	}
 }

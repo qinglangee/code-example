@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Future对象本身可以看作是一个显式的引用，一个对异步处理结果的引用.<br>
- * 
+ *
  * @author zhch
  *
  */
@@ -24,16 +24,18 @@ public class FutureExample {
 	public void futureBasic() {
 		// 创建一个可返回值的 Callable 实现
 		Callable<String> callable = new Callable<String>() {
-			public String call() throws Exception {
-				long time = new Random().nextInt(5000);
+			@Override
+            public String call() throws Exception {
+				long time = new Random().nextInt(10000);
 				Thread.sleep(time);
 				return "time:" + time + " thread:" + Thread.currentThread().getName();
 			}
 		};
 		List<FutureTask<String>> list = new ArrayList<>();
-		for (int i = 0; i < 5; i++) {
-			// future 会获得 callable的返回值 
-			FutureTask<String> future = new FutureTask<String>(callable);
+		long startTime = System.currentTimeMillis();
+		for (int i = 0; i < 10; i++) {
+			// future 会获得 callable的返回值
+			FutureTask<String> future = new FutureTask<>(callable);
 			list.add(future);
 
 			// 在线程中启动 callable （FutureTask 实现了 Future 和 Callable 两个接口）
@@ -42,8 +44,10 @@ public class FutureExample {
 
 		try {
 			for (FutureTask<String> future : list) {
+			    String threadResp =  future.get();
+			    long getTime = System.currentTimeMillis();
 				// future.get() 方法会一直等到 future 所在线程返回值再往下运行
-				System.out.println(future.get());
+				System.out.println((getTime - startTime) + " " + threadResp);
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
@@ -56,13 +60,24 @@ public class FutureExample {
 	public void futureInThreadPool() {
 		ExecutorService threadPool = Executors.newSingleThreadExecutor();
 		Future<Integer> future = threadPool.submit(new Callable<Integer>() {
-			public Integer call() throws Exception {
+			@Override
+            public Integer call() throws Exception {
+			    Thread.sleep(5000);// 可能做一些事情
 				return new Random().nextInt(100);
 			}
 		});
+		threadPool.shutdown();
 		try {
-			Thread.sleep(5000);// 可能做一些事情  
-			System.out.println(future.get());
+		    System.out.println("shut down:" + threadPool.isShutdown() + " terminate:" + threadPool.isTerminated());
+		    Thread.sleep(2510);
+		    System.out.println("shut down:" + threadPool.isShutdown() + " terminate:" + threadPool.isTerminated());
+		    Thread.sleep(2510);
+		    System.out.println("shut down:" + threadPool.isShutdown() + " terminate:" + threadPool.isTerminated());
+		    Thread.sleep(2510);
+		    System.out.println("shut down:" + threadPool.isShutdown() + " terminate:" + threadPool.isTerminated());
+		    Thread.sleep(2510);
+		    // 返回值已经在　future 中了，线程什么的关闭也没影响
+		    System.out.println(future.get());
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} catch (ExecutionException e) {
@@ -72,7 +87,7 @@ public class FutureExample {
 
 	public static void main(String[] args) {
 		FutureExample t = new FutureExample();
-		//		t.futureBasic();
+//				t.futureBasic();
 		t.futureInThreadPool();
 	}
 
