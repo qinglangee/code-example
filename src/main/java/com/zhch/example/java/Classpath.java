@@ -22,7 +22,9 @@ public class Classpath {
 		// 通过这个类的 class loader 来获取资源， 在 test 类中调用方法时访问到功能类所在的路径
 		// 路径 不 以 / 开头
 		URL url = Classpath.class.getClassLoader().getResource("com/zhch");
+		URL url2 = getClass().getClassLoader().getResource("com/zhch");
 		System.out.println("Xxx.class.getClassLoader().getResource(\"\") : " + url.getPath());
+		System.out.println("Xxx.class.getClassLoader().getResource(\"\") : " + url2.getPath());
 	}
 
 	// 类加载的源文件

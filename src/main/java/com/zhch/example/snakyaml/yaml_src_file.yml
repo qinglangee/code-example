@@ -1,0 +1,17 @@
+!!com.zhch.example.snakyaml.OuterConfig
+father: 
+    name: zhangsan
+    age: 32
+    wife:
+        name: xiaomei
+        age: 22
+    schools: 
+        - name: hafu
+          age: 120
+        - name: jianqiao
+          age: 100
+    children:
+        - name: lisi
+          age: 10
+        - name: wangwu
+          age: 8

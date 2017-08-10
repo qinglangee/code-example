@@ -12,6 +12,9 @@ public class SystemProperty {
 
 		// 文件编码
 		System.out.println("file.encoding:" + System.getProperty("file.encoding"));
+
+		// 程序目录
+		System.out.println("user.dir:" + System.getProperty("user.dir"));
 	}
 
 	public static void main(String[] args) {
