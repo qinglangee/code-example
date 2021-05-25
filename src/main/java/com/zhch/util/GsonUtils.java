@@ -1,6 +1,7 @@
 package com.zhch.util;
 
 import java.lang.reflect.Type;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -9,6 +10,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
+import com.google.gson.reflect.TypeToken;
 
 public class GsonUtils {
     private static Gson gson = new Gson();
@@ -71,6 +73,7 @@ public class GsonUtils {
 
     /**
      * 字符串转换为对象
+     * Type type = new TypeToken<List<People>>(){}.getType();
      *
      * @param json
      * @param typeOfT
@@ -188,10 +191,10 @@ public class GsonUtils {
         if (strs.length < 2) {
             return new SearchResult(json, attr);
         }
-        JsonObject result = null;
+        JsonObject result = json;
         for (int i = 0; i < strs.length - 1; i++) {
-            if (json.has(strs[i])) {
-                result = json.get(strs[i]).getAsJsonObject();
+            if (result.has(strs[i])) {
+                result = result.get(strs[i]).getAsJsonObject();
             } else {
                 return new SearchResult(null, null);
             }

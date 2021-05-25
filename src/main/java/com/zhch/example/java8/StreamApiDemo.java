@@ -1,6 +1,7 @@
 package com.zhch.example.java8;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -23,6 +24,18 @@ public class StreamApiDemo {
 		intList.add(7);
 		intList.add(4);
 		intList.add(2);
+	}
+	
+	public void sort() {
+		System.out.println("sort===========================");
+		List<String> defaultSort = nameList.stream().sorted().collect(Collectors.toList());
+		List<String> customSort = nameList.stream().sorted((o1,o2)->{return o1.charAt(2) - o2.charAt(2);}).collect(Collectors.toList());
+		List<String> reverseSort = nameList.stream().sorted(Comparator.comparing(String::toString).reversed()).collect(Collectors.toList());
+		System.out.println(nameList);
+		System.out.println(defaultSort);
+		System.out.println(customSort);
+		System.out.println(reverseSort);
+		
 	}
 
 	public void filter() {
@@ -64,6 +77,7 @@ public class StreamApiDemo {
 
 	public static void main(String[] args) {
 		StreamApiDemo t = new StreamApiDemo();
+		t.sort();
 		t.filter();
 		t.matching();
 		t.finding();

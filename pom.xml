@@ -241,9 +241,14 @@
 		<dependency>
 			<groupId>org.yaml</groupId>
 			<artifactId>snakeyaml</artifactId>
-			<scope>runtime</scope>
 			<version>1.17</version>
 		</dependency>
+
+		<dependency>
+  <groupId>org.xerial</groupId>
+  <artifactId>sqlite-jdbc</artifactId>
+  <version>3.32.3.2</version>
+</dependency>
 
 
 	</dependencies>
