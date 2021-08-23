@@ -59,7 +59,7 @@
 		<dependency>
 			<groupId>org.jsoup</groupId>
 			<artifactId>jsoup</artifactId>
-			<version>1.7.3</version>
+			<version>1.14.2</version>
 		</dependency>
 
 		<dependency><!-- 这个包已经被 httpcomponents 中的 httpclient 代替了 -->
