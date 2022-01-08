@@ -8,9 +8,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Vector;
 
-import javax.swing.JOptionPane;
-
-import com.sun.star.io.SocketException;
 
 public class D02Server {
 	
@@ -20,6 +17,9 @@ public class D02Server {
 	// 使用 telnet 模拟客户端  telnet localhost port
 	public static void main(String[] args) {
 		new GetSocket().start();
+		while(true) {
+			// 如果有其它需要 server 处理的交互之类的，没有就不必要再循环了。 
+		}
 	}
 }
 
@@ -105,7 +105,7 @@ class ChatSocket extends Thread {
             {
                 System.out.println(line);
                 System.out.println("server 03");
-                ChatManager.GetChatManager().Send(this, line + "\n");
+                ChatManager.GetChatManager().broadcast(this, line + "\n");
                 System.out.println("server 04");
             }
         } catch (UnsupportedEncodingException e) {
@@ -155,7 +155,7 @@ class ChatManager {
     }
 
     //群发消息
-    public void Send(ChatSocket cs,String str)  {
+    public void broadcast(ChatSocket cs,String str)  {
         for (int i = 0; i < vector.size(); i++) {
             ChatSocket chatsocket=(ChatSocket)vector.get(i);
             if(!cs.equals(chatsocket))
@@ -171,7 +171,7 @@ class ChatManager {
         }
     }
     
-    //群发消息
+    // 删除连接
     public void remove(ChatSocket cs) {
     	vector.remove(cs);
     }
